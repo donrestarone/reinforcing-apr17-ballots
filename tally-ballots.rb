@@ -23,10 +23,16 @@ def tally_votes(ballot_object)
 		end 
 
 	end 
-return positions
+ tally = positions
+ announce_winner(tally)
 end 
 
-def count_ballots 
+def announce_winner(hash)
+	a = hash.sort_by{|k,v| v}
+	b = hash.max_by{|k,v| v}
+	#puts a
+	puts "#{b} won"
+	puts "the rest #{a}"
 
 end
 
