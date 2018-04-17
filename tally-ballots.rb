@@ -12,9 +12,13 @@ def tally_votes(ballot_object)
 		
 		hash.each do |position, name|
 			if positions[name] == nil
-				positions[name] = position
+				positions[name] = voter_preference(position)
+				#p positions
+				
 			else 
-				positions[name] += position 
+				positions[name] += voter_preference(position)
+				#p positions 
+				
 			end 
 		end 
 
@@ -22,19 +26,25 @@ def tally_votes(ballot_object)
 return positions
 end 
 
+def count_ballots 
 
-# def voter_preference(ballot)
-# 	ballot = 0 
+end
+
+
+def voter_preference(position)
 	
+	
+	if position == 1 
+		return 3 
+	elsif position == 2
+		return 2
+	else 
+		return 1
+	end
 
-
-# end 
+	
+end 
 
 puts tally_votes(ballots)
 
 
-
-# in positions[:key] if name is already key in positions
-# 	increment value 
-# else 
-# 	start at 0 += position 
